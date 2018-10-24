@@ -1,0 +1,44 @@
+{
+	"id": "d1057020-bae2-610f-aa8c-3a38b9c7580c",
+	"name": "tests_auth_check",
+	"description": "",
+	"order": [
+		"c272b4cd-a374-39fc-a084-eff979a9af3f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1516800129676,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "c272b4cd-a374-39fc-a084-eff979a9af3f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8002",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"Error message is correct\", function () {\n    var jsonData = pm.response.json();\n    pm.expect(jsonData[\"error\"]).to.eql(\"missing access token\");\n});\n\npm.test(\"Status code is 401\", function () {\n    pm.response.to.have.status(401);\n});\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516805937979,
+			"name": "localhost:8002",
+			"description": "",
+			"collectionId": "d1057020-bae2-610f-aa8c-3a38b9c7580c",
+			"responses": [],
+			"rawModeData": "{\n\t\"headers\": {\n\t\t\t\"target_uri\": \"/iot-device-repo\"\n\t\t}\n}"
+		}
+	]
+}
